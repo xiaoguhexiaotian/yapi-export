@@ -3,6 +3,7 @@ import axios from 'axios';
 import { omit } from 'lodash';
 import { writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
+import { syncToContinueConfig } from './continueSync';
 
 type YapiResponseSchema = {
   type: string;
@@ -25,7 +26,7 @@ type QueryParam = {
   desc: string;
 };
 
-type ApiDefinition = {
+export type ApiDefinition = {
   method: string;
   catid: number;
   title: string;
@@ -108,9 +109,9 @@ export async function syncYapiData() {
         details.push(detail);
       }
     }
-
+    const promptAndData = await syncToContinueConfig(details)
     // 写入文件
-    writeFileSync(outputPath, JSON.stringify(details, null, 2));
+    writeFileSync(outputPath, JSON.stringify(promptAndData, null, 2));
     return true;
   } catch (error: any) {
     throw new Error(`接口请求失败: ${error.message}`);

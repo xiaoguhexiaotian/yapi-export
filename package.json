@@ -1,8 +1,9 @@
 {
     "name": "yapi-export",
     "displayName": "YAPI Sync Pro",
-    "description": "可视化YAPI接口导出工具",
+    "description": "可视化YAPI接口导出工具，可同步YAPI接口信息到Continue插件中的prompt中",
     "version": "1.1.0",
+    "repository": "https://github.com/xiaoguhexiaotian/yapi-export.git",
     "author": {
         "name": "Guji"
     },
