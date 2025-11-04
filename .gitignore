@@ -19,3 +19,6 @@ node_modules/
 
 # VS Code files
 .vscode/
+
+# Ignore files
+.DS_Store
